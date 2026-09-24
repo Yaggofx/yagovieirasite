@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f2f2f2;
+  --ink: #000000;
+  --muted: #a6a6a6;
+  --line: #e2e2e2;
+  --line-dark: #1c1c1c;
+  --card: #1e1e1e;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-dark: var(--line-dark);
+  --color-card: var(--card);
+  --color-azure: #489dfa;
+  --color-slate: #324663;
+  --color-mist: #a8dafa;
+  --color-thera: #8a1cf2;
+  --font-sans: var(--font-inter-tight);
+  --font-urbanist: var(--font-urbanist);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter-tight), Arial, Helvetica, sans-serif;
+}
+
+/* Grade de colunas sutil que aparece no fundo do layout do Figma */
+.grid-lines {
+  background-image: linear-gradient(to right, var(--grid-color, var(--line)) 1px, transparent 1px);
+  background-size: 25% 100%;
+  background-origin: content-box;
+  background-clip: content-box;
+}
