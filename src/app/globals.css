@@ -4,8 +4,8 @@
   --paper: #f2f2f2;
   --ink: #000000;
   --muted: #a6a6a6;
-  --line: #e2e2e2;
-  --line-dark: #1c1c1c;
+  --line: rgba(0, 0, 0, 0.05);
+  --line-dark: rgba(255, 255, 255, 0.08);
   --card: #1e1e1e;
 }
 
@@ -34,10 +34,14 @@ body {
   font-family: var(--font-inter-tight), Arial, Helvetica, sans-serif;
 }
 
-/* Grade de colunas sutil que aparece no fundo do layout do Figma */
+/* Grade de colunas sutil que aparece no fundo do layout do Figma (5 linhas verticais na cor #000000 com 5% de opacidade) */
 .grid-lines {
-  background-image: linear-gradient(to right, var(--grid-color, var(--line)) 1px, transparent 1px);
-  background-size: 25% 100%;
+  background-image:
+    linear-gradient(to right, var(--grid-color, var(--line)) 1px, transparent 1px),
+    linear-gradient(to left, var(--grid-color, var(--line)) 1px, transparent 1px);
+  background-size: 25% 100%, 1px 100%;
+  background-position: left top, right top;
+  background-repeat: repeat-x, no-repeat;
   background-origin: content-box;
   background-clip: content-box;
 }
