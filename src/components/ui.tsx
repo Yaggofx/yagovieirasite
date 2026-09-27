@@ -16,14 +16,19 @@ export function Container({ children, className = "" }: { children: ReactNode; c
   return <div className={`relative mx-auto w-full max-w-[1300px] px-5 sm:px-8 ${className}`}>{children}</div>;
 }
 
-/** Linhas verticais das colunas, como no grid do Figma. */
+/** Linhas verticais das colunas (5 linhas: 0%, 25%, 50%, 75% e 100%, cor #000000 com 5% de opacidade). */
 export function GridOverlay({ dark = false }: { dark?: boolean }) {
+  const lineStyle = dark ? "border-[rgba(255,255,255,0.08)]" : "border-[rgba(0,0,0,0.05)]";
+
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0">
-      <Container
-        className={`grid-lines h-full ${dark ? "[--grid-color:var(--line-dark)]" : ""}`}
-      >
-        {null}
+      <Container className="h-full">
+        <div className="grid h-full grid-cols-4">
+          <div className={`h-full border-l ${lineStyle}`} />
+          <div className={`h-full border-l ${lineStyle}`} />
+          <div className={`h-full border-l ${lineStyle}`} />
+          <div className={`h-full border-l border-r ${lineStyle}`} />
+        </div>
       </Container>
     </div>
   );

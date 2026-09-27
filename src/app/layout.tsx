@@ -24,8 +24,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${interTight.variable} ${urbanist.variable} antialiased`}>
-      <body className="min-h-screen">
+    <html
+      lang="pt-BR"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+      className={`${interTight.variable} ${urbanist.variable} antialiased`}
+    >
+      <body className="min-h-screen" suppressHydrationWarning>
         {children}
         <FloatingNav />
       </body>
